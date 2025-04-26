@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全验证</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            width: 70%;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>安全验证</h1>
+    <p>请输入验证信息：</p>
+    
+    <div class="input-container">
+        <input type="text" id="inputField" placeholder="在这里输入...">
+        <button onclick="checkInput()">验证</button>
+    </div>
+    
+    <div id="result"></div>
+    
+    <script>
+        function checkInput() {
+            const userInput = document.getElementById('inputField').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (userInput === "万生安全") {
+                resultDiv.innerHTML = "验证成功！<br>flag{qwertyuiop147852369}";
+                resultDiv.style.display = "block";
+                resultDiv.style.backgroundColor = "#dff0d8";
+                resultDiv.style.color = "#3c763d";
+            } else {
+                resultDiv.innerHTML = "验证失败！<br>请输入正确的验证信息。";
+                resultDiv.style.display = "block";
+                resultDiv.style.backgroundColor = "#f2dede";
+                resultDiv.style.color = "#a94442";
+            }
+        }
+    </script>
+</body>
+</html>
